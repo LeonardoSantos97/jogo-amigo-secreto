@@ -1,5 +1,6 @@
 //O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
 
+const indiceUsuario = 0; 
 const amigos = [];
 const listaAmigos = document.getElementById('listaAmigos');
 const resultado = document.getElementById('resultado');
@@ -51,12 +52,14 @@ function atualizarListaAmigos() {
 }
 
 function exibirResultados(nomes, sorteados) {
-    resultado.innerHTML = ''; // Limpa a lista de resultados
+    resultado.innerHTML = '';
 
     for (let i = 0; i < nomes.length; i++) {
-        const itemResultado = document.createElement('li');
-        itemResultado.textContent = `${nomes[i]} tirou ${sorteados[i]}`;
-        resultado.appendChild(itemResultado);
+        if (i === indiceUsuario) {
+            const itemResultado = document.createElement('li');
+            itemResultado.textContent = `Você tirou ${sorteados[i]}`;
+            resultado.appendChild(itemResultado);
+        }
     }
 }
 
